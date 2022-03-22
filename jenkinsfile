@@ -1,6 +1,16 @@
   node {  
-      stage('Build') { 
+      // JDK 8 사용하도록 설정하기
+      //stage 'Setting'
+      //def javaHome = tool name: 'jdk8', type: 'hudson.model.JDK'
+      //env.JAVA_HOME = "${javaHome}"
+      //env.PATH = "${env.PATH}:${env.JAVA_HOME}/bin"
+  
+      stage('Checkout') { 
           git branch: 'master', credentialsId: 'c75f4dce-eaa5-4c6a-831f-9c5f15732c58', url: 'git@gitlab.direa.synology.me:cruzapim-k8s/authserver.git'
+      }
+      stage ('Build'){
+        def mvnHome = tool 'M3'
+        sh "${mvnHome}/bin/mvn -P local -Dmaven.test.skip=true -Ddeploy-path=./deploy clean install"
       }
       stage('Test') { 
           // 
