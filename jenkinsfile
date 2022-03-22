@@ -23,5 +23,23 @@
           //sh "mvn clean"
           //sh "mvn build"
         }
+        /* stage("Build") {
+            steps {
+                withMaven(mavenSettingsConfig: 'Maven_config') {
+                    sh "echo Build"
+                    sh "mvn clean package -Dmaven.test.skip=true"
+                }
+            }
+        } */
+
+        stage("Delivery To Nexus") {
+            steps {
+                //withMaven(mavenSettingsConfig: 'Maven_config') {
+                    sh "mvn deploy -Dmaven.test.skip=true"
+                    sh "echo Delivery"
+                //}
+            }
+        }
+
     }
 }
