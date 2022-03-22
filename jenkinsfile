@@ -11,11 +11,13 @@
             }
         }
         stage('Checkout') { 
-            git branch: 'master', credentialsId: 'c75f4dce-eaa5-4c6a-831f-9c5f15732c58', url: 'git@gitlab.direa.synology.me:cruzapim-k8s/authserver.git'
+            steps {
+              git branch: 'master', credentialsId: 'c75f4dce-eaa5-4c6a-831f-9c5f15732c58', url: 'git@gitlab.direa.synology.me:cruzapim-k8s/authserver.git'
+            }
         }
         stage ('Build'){
           //steps {
-                    sh 'mvn clean package -Dcheckstyle.skip -Dspotbugs.skip -Dpmd.skip'
+                    //sh 'mvn clean package -Dcheckstyle.skip -Dspotbugs.skip -Dpmd.skip'
                 //}
           //sh "mvn -v"
           //sh "mvn clean"
