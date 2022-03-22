@@ -11,9 +11,22 @@ pipeline{
           maven('maven3.8.5')
       }
       stages{
-        stage('Checkout') { 
-            git branch: 'master', credentialsId: 'c75f4dce-eaa5-4c6a-831f-9c5f15732c58', url: 'git@gitlab.direa.synology.me:cruzapim-k8s/authserver.git'
-        }
+        //stage('Checkout') { 
+        //    git branch: 'master', credentialsId: 'c75f4dce-eaa5-4c6a-831f-9c5f15732c58', url: 'git@gitlab.direa.synology.me:cruzapim-k8s/authserver.git'
+        //}
+        stage('Build') {
+         steps {
+            // Get some code from a GitHub repository
+            git(
+                url : 'git@gitlab.direa.synology.me:cruzapim-k8s/authserver.git',
+                credentialsId: 'c75f4dce-eaa5-4c6a-831f-9c5f15732c58',
+                branch: 'master'
+            )
+
+            // yarn install & build
+            sh "mvn clean"
+            sh "mvn build"
+         }
         stage ('Build'){
           steps{
             script{
