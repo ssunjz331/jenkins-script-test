@@ -14,8 +14,12 @@
           git branch: 'master', credentialsId: 'c75f4dce-eaa5-4c6a-831f-9c5f15732c58', url: 'git@gitlab.direa.synology.me:cruzapim-k8s/authserver.git'
       }
       stage ('Build'){
-        def mvnHome = tool 'M3'
-        sh "${mvnHome}/bin/mvn -P local -Dmaven.test.skip=true -Ddeploy-path=./deploy clean install"
+        steps{
+          script{
+            sh "java -version"
+            sh "mvn -v"
+          }
+        }
       }
       stage('Test') { 
           // 
