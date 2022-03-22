@@ -1,16 +1,15 @@
-pipeline { 
-  
-  agent any
+
+ pipeline {
+    agent any 
     tools {
-        maven 'maven 3.8.4'
+        maven 'maven 3.8.5'
     }
-      // stage('Build') { 
-      // JDK 8 사용하도록 설정하기
-      //stage 'Setting'
-      //def javaHome = tool name: 'jdk8', type: 'hudson.model.JDK'
-      //env.JAVA_HOME = "${javaHome}"
-      //env.PATH = "${env.PATH}:${env.JAVA_HOME}/bin"
-      stages{
+    stages {
+        stage('Stage 1') {
+            steps {
+                echo 'Hello world!' 
+            }
+        }
         stage('Checkout') { 
             git branch: 'master', credentialsId: 'c75f4dce-eaa5-4c6a-831f-9c5f15732c58', url: 'git@gitlab.direa.synology.me:cruzapim-k8s/authserver.git'
         }
@@ -22,8 +21,5 @@ pipeline {
           //sh "mvn clean"
           //sh "mvn build"
         }
-        stage('Test') { 
-            // 
-        }
-      }
- }
+    }
+}
