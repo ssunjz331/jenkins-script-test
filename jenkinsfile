@@ -1,6 +1,6 @@
 pipeline{
   
-  angent any  
+  agent any  
       // JDK 8 사용하도록 설정하기
       //stage 'Setting'
       //def javaHome = tool name: 'jdk8', type: 'hudson.model.JDK'
