@@ -32,14 +32,14 @@
             }
         } */
 
-        stage("Delivery To Nexus") {
+        /*stage("Delivery To Nexus") {
             steps {
                 //withMaven(mavenSettingsConfig: 'Maven_config') {
                     sh "mvn deploy -Dmaven.test.skip=true"
                     sh "echo Delivery"
                 //}
             }
-        }
+        }*/
 
     }
 }
