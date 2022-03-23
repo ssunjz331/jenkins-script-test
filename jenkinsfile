@@ -43,7 +43,7 @@
         stage('Deploy') {
           steps {
               sshagent(credentials : ['1db082f4-6b48-4298-9bbe-e937287a74a7']) {
-                    sh 'ls /home'
+                    sh 'ls /home/direa'
                     sh 'ssh -tt apim@220.75.198.106 -p96'
                     echo pwd()
                     echo 'Test SSH done'
