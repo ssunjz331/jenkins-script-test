@@ -48,6 +48,7 @@
                     //sh 'ssh id@host mkdir -p /home/cnabro/deploy/dobby-work'
                     //sh 'scp -r ./public id@host:/home/cnabro/deploy/dobby-work'
                 }
+           }
        }
 
     }
