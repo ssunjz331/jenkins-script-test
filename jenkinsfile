@@ -42,13 +42,13 @@
         }*/
         stage('Deploy') {
           steps {
-              //sshagent(credentials : ['478fca04-e64f-4280-9def-c55e470940ee']) {
+              sshagent(credentials : ['478fca04-e64f-4280-9def-c55e470940ee']) {
                     sh 'ssh -tt apim@220.75.198.106 -p96'
                     echo pwd()
                     echo 'Test SSH done'
                     //sh 'ssh id@host mkdir -p /home/cnabro/deploy/dobby-work'
                     //sh 'scp -r ./public id@host:/home/cnabro/deploy/dobby-work'
-                //}
+                }
            }
        }
 
