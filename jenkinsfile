@@ -45,7 +45,7 @@
               sshagent(credentials : ['1db082f4-6b48-4298-9bbe-e937287a74a7']) {
                     sh 'ls /home/direa'
                     // sh 'ssh -tt apim@220.75.198.106 -p96'
-                    sh 'ssh -tt apim@192.168.1.96'
+                    sh 'ssh apim@192.168.1.96 ls /home'
                     echo pwd()
                     echo 'Test SSH done'
                     //sh 'ssh id@host mkdir -p /home/cnabro/deploy/dobby-work'
