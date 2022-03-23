@@ -42,7 +42,7 @@
         }*/
         stage('Deploy') {
           steps {
-              sshagent(credentials : ['478fca04-e64f-4280-9def-c55e470940ee']) {
+              sshagent(credentials : ['1db082f4-6b48-4298-9bbe-e937287a74a7']) {
                     sh 'ssh -tt apim@220.75.198.106 -p96'
                     echo pwd()
                     echo 'Test SSH done'
