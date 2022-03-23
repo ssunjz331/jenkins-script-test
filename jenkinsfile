@@ -55,6 +55,11 @@
        }*/
        /*************** Pulish Over SSH Plug in사용******************/
         stage('SSH transfer') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS'
+              }
+            }
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
                     continueOnError: false, failOnError: true,
