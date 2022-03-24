@@ -23,7 +23,7 @@
           //sh "mvn clean"
           //sh "mvn build"
         }
-            /*steps {
+            /* steps {
                jacoco execPattern: '**/build/jacoco/*.exec',
                        //classPattern: '**/build/classes/java,**/build/classes/groovy',
                        //inclusionPattern: '**/*.class',
@@ -41,7 +41,7 @@
                        sourcePattern: '**/coverage/**',
                        inclusionPattern: '**/*.class'
            }
-         }*/
+         } */
         /* stage("Build") {
             steps {
                 withMaven(mavenSettingsConfig: 'Maven_config') {
