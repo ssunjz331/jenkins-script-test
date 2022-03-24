@@ -16,14 +16,14 @@
             }
         }
         stage ('Build'){
-          /*steps {
+          steps {
              sh 'mvn clean package -Dcheckstyle.skip -Dspotbugs.skip -Dpmd.skip -DskipTests'
           }
           //sh "mvn -v"
           //sh "mvn clean"
           //sh "mvn build"
-        }*/
-            steps {
+        }
+            /*steps {
                jacoco execPattern: '**/build/jacoco/*.exec',
                        //classPattern: '**/build/classes/java,**/build/classes/groovy',
                        //inclusionPattern: '**/*.class',
@@ -41,7 +41,7 @@
                        sourcePattern: '**/coverage/**',
                        inclusionPattern: '**/*.class'
            }
-         }
+         }*/
         /* stage("Build") {
             steps {
                 withMaven(mavenSettingsConfig: 'Maven_config') {
