@@ -23,12 +23,20 @@
           //sh "mvn clean"
           //sh "mvn build"
         }*/
-            steps([$class: 'JacocoPublisher', 
-              execPattern: 'target/*.exec',
-              classPattern: 'target/classes',
-              sourcePattern: 'src/main/java',
-              exclusionPattern: 'src/test*'
-            ])}
+            steps {
+               jacoco execPattern: '**/build/jacoco/*.exec',
+                       classPattern: '**/build/classes/java,**/build/classes/groovy',
+                       inclusionPattern: '**/*.class',
+                       exclusionPattern: '**/test/**,**/integrationTest**,**/*Test.class,**/Q*.class,**/config/**/*.class',
+                       sourcePattern: '**/src/main/java',
+                       sourceInclusionPattern: '**/*.java',
+                       changeBuildStatus: true,
+                       maximumBranchCoverage: params.MINIMUM_BRANCH_COVERAGE,
+                       minimumBranchCoverage: params.MINIMUM_BRANCH_COVERAGE,
+                       maximumLineCoverage: params.MINIMUM_LINE_COVERAGE,
+                       minimumLineCoverage: params.MINIMUM_LINE_COVERAGE
+           }
+         }
         /* stage("Build") {
             steps {
                 withMaven(mavenSettingsConfig: 'Maven_config') {
