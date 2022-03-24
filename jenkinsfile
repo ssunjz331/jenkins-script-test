@@ -37,9 +37,9 @@
                        //minimumLineCoverage: params.MINIMUM_LINE_COVERAGE
                        
                        //execPattern: '**/path_to_file/jacoco.exec',
-                       classPattern: '**/coverage/**',
-                       sourcePattern: '**/coverage/**',
-                       inclusionPattern: '**/*.class'
+                    //    classPattern: '**/coverage/**',
+                    //    sourcePattern: '**/coverage/**',
+                    //    inclusionPattern: '**/*.class'
            }
          } */
         /* stage("Build") {
