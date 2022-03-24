@@ -5,9 +5,10 @@
         maven 'maven3.8.5'
     }
     stages {
-        stage('Stage 1') {
+        stage('Echo') {
             steps {
                 echo 'Hello world!' 
+                sh 'ifconfig'
             }
         }
         stage('Checkout') { 
