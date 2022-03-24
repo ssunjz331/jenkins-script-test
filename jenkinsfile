@@ -25,11 +25,11 @@
           //sh "mvn clean"
           //sh "mvn build"
         }
-        stage('SonarQube Analysis') {
-          steps{
-             sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=oauth-jenkins'
-          }
-        }
+        //stage('SonarQube Analysis') {
+        //  steps{
+        //     sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=oauth-jenkins'
+        //  }
+        //}
 
         
         //  steps {
