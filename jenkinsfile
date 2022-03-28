@@ -19,6 +19,7 @@
         }
         stage ('Build'){
           steps {
+          slackSend (channel: "#jenkins", message: "Build Start ------- message test")
              sh 'mvn clean package -Dcheckstyle.skip -Dspotbugs.skip -Dpmd.skip -DskipTests'
           }
           
