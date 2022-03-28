@@ -9,7 +9,7 @@
             steps {
                 echo 'Hello world!' 
                 sh 'ifconfig'
-                sh 'ls /home/'
+                sh 'pwd'
             }
         }
         stage('Checkout') { 
