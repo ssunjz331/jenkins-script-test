@@ -75,7 +75,7 @@
                 //}
             }
         }*/
-        /*stage('Deploy') {
+        /* stage('Deploy') {
           steps {
               sshagent(credentials : ['1db082f4-6b48-4298-9bbe-e937287a74a7']) {
                     sh 'ls /home/direa'
@@ -87,7 +87,7 @@
                     //sh 'scp -r ./public id@host:/home/cnabro/deploy/dobby-work'
                 }
            }
-       }*/
+       } */
        /*************** Pulish Over SSH Plug in사용******************/
         stage('SSH transfer') {
             when {
