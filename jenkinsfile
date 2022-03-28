@@ -77,6 +77,7 @@
                 //}
             }
         }*/
+        
         /* stage('Deploy') {
           //steps {
           //    sshagent(credentials : ['1db082f4-6b48-4298-9bbe-e937287a74a7']) {
@@ -90,6 +91,7 @@
           //      }
           // }
        } */
+       
        /*************** Pulish Over SSH Plug in사용******************/
         stage('SSH transfer') {
             when {
@@ -118,15 +120,15 @@
             }
         }
         //
-        post {
+       
+    }
+     post {
         success {
             slackSend (channel: "#jenkins", color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
         }
         failure {
             slackSend (channel: "#jenkins", color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
         }
-    }
-
 
     }
 }
