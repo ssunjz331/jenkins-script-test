@@ -17,13 +17,19 @@
               git branch: 'master', credentialsId: 'c75f4dce-eaa5-4c6a-831f-9c5f15732c58', url: 'git@gitlab.direa.synology.me:cruzapim-k8s/authserver.git'
             }
         }
-        stage ('Build'){
+        /* stage ('Build'){
           steps {
              sh 'mvn clean package -Dcheckstyle.skip -Dspotbugs.skip -Dpmd.skip -DskipTests'
           }
+          
           //sh "mvn -v"
           //sh "mvn clean"
           //sh "mvn build"
+        } */
+        stage('SonarQube Analysis') {
+          steps{
+             sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=oauth-jenkins -Dsonar.login=fb65fda5d98077e68feec42b6adf638dd3a51e64'
+          }
         }
         //stage('SonarQube Analysis') {
         //  steps{
